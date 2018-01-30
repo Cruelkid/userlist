@@ -5,6 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+    'name' => 'Users list',
     'language' => 'en',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -50,6 +51,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '' => 'list/index',
+                'list/user/<id:\d+>' => 'list/user',
             ],
         ],
 

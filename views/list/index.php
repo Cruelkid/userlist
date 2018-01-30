@@ -3,17 +3,14 @@
 use yii\helpers\Url;
 
 ?>
-<h1>/list/index</h1>
-
-<p>
-    You may change the content of this page by modifying
-    the file <code><?= __FILE__; ?></code>.
-</p>
+<h1 class="text-center">All users:</h1>
 
 <div class="users">
-    <?php foreach ($users as $user): ?>
-        <div class="user"L>
-            <a href="<?= Url::to(['list/user', 'id' => $user->id]) ?>"><?= $user->first_name . ' ' . $user->last_name; ?></a>
-        </div>
-    <?php endforeach; ?>
+    <ol>
+        <?php foreach ($users as $user): ?>
+            <div class="user">
+                    <li class="list-group"><a href="<?= Url::to(['list/user', 'id' => $user->id]) ?>"><?= $user->first_name . ' ' . $user->last_name; ?></a></li>
+            </div>
+        <?php endforeach; ?>
+    </ol>
 </div>
