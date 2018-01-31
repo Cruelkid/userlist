@@ -9,7 +9,7 @@ use yii\helpers\Url;
     <ol>
         <?php foreach ($users as $user): ?>
             <div class="user">
-                    <li class="list-group"><a href="<?= Url::to(['list/user', 'id' => $user->id]) ?>"><?= $user->first_name . ' ' . $user->last_name; ?></a></li>
+                    <li class="list-group"><a href="<?= Url::to(['list/displayuser', 'id' => $user->id]) ?>"><?= $user->first_name . ' ' . $user->last_name; ?></a></li>
             </div>
         <?php endforeach; ?>
     </ol>

@@ -45,16 +45,16 @@ $config = [
             ],
         ],
         'db' => $db,
-
+/*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
                 '' => 'list/index',
-                'list/user/<id:\d+>' => 'list/user',
+                'list/displayuser/<id:\d+>' => 'list/displayuser',
             ],
         ],
-
+*/
     ],
     'params' => $params,
 ];
