@@ -45,7 +45,7 @@ $config = [
             ],
         ],
         'db' => $db,
-/*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -54,7 +54,7 @@ $config = [
                 'list/displayuser/<id:\d+>' => 'list/displayuser',
             ],
         ],
-*/
+
     ],
     'params' => $params,
 ];

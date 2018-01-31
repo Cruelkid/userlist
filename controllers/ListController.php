@@ -2,10 +2,10 @@
 
 namespace app\controllers;
 
-//use Yii;
+use Yii;
 use app\models\Address;
 use app\models\User;
-//use yii\db\Expression;
+use yii\db\Expression;
 use yii\web\NotFoundHttpException;
 
 class ListController extends \yii\web\Controller
@@ -30,15 +30,31 @@ class ListController extends \yii\web\Controller
     }
 
     public function actionCreateuser() {
-//        if (Yii::$app->user->isGuest) {
-//            $user = new User();
-        $address = new Address();
-            var_dump($address);
-            die;
-            $user->load(Yii::$app->request->post());
-//            $user->created_at = new Expression('NOW()');
-            $user->save();
+        $user = new User();
+        $user->load(Yii::$app->request->post());
+        $user->created_at = new Expression('NOW()');
+        if ($user->save()) {
+            Yii::$app->session->set('user_id', $user->id);
+            return $this->redirect(['addaddress', ]);
         }
-//    }
+
+        return $this->render('createuser', [
+            'userForm' => $user,
+        ]);
+
+    }
+
+    public function actionAddaddress() {
+        $address = new Address();
+        $address->load(Yii::$app->request->post());
+        $address->user_id = Yii::$app->session->get('user_id');
+
+        if ($address->save())
+            return $this->redirect(['/', ]);
+
+        return $this->render('addaddress', [
+            'addressForm' => $address,
+        ]);
+    }
 
 }
