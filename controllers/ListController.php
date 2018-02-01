@@ -46,14 +46,16 @@ class ListController extends \yii\web\Controller
 
     public function actionAddaddress() {
         $address = new Address();
-        $address->load(Yii::$app->request->post());
-        $address->user_id = Yii::$app->session->get('user_id');
+        $address_uid = Yii::$app->session->get('user_id');
 
-        if ($address->save())
-            return $this->redirect(['/', ]);
+        if ($address->save()) {
+            Yii::$app->session->remove('user_id');
+            return $this->redirect(['/',]);
+        }
 
         return $this->render('addaddress', [
             'addressForm' => $address,
+            'user_id' => $address_uid
         ]);
     }
 

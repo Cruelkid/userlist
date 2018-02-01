@@ -12,6 +12,6 @@ $this->title = "User creation";
         <?= $form->field($userForm, 'last_name')->textInput(); ?>
         <?= $form->field($userForm, 'first_name')->textInput(); ?>
         <?= $form->field($userForm, 'gender')->textInput(); ?>
-        <input type="submit" name="post" value="Create">
+        <input type="submit" name="post" value="Add address">
     <?php ActiveForm::end(); ?>
 <?php endif; ?>
